@@ -19,13 +19,13 @@ while(True):
         flag = autopress.find_pos(pic_dirs[next_state],True)
     if(flag):
         print("\tfound")
-        time.sleep(5)
         if(next_state == running):
             time.sleep(10)
         if(next_state == no_intellect):
             autopress.find_pos('cancel.png',True)
             easygui.msgbox("理智耗尽，小助手将退出", title="警告",ok_button="ok") 
             exit(0)
+        time.sleep(5)
     next_state += 1
-    if(next_state > 3):
+    if(next_state > 4):
         next_state = 0
