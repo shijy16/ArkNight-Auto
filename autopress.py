@@ -54,14 +54,15 @@ def get_click_range(box):
 
     return x1, y1, x2, y2
 
-def find_pos(picDir,press=True):
+def find_pos(picDir,press=True,reverse=False):
     print('finding ' + picDir)
     shoter = Screenshot()
     shoter.shot()
     screenImg = cv2.imread("temp/cur.png",0)
     screenImg = np.rot90(screenImg)
-    screenImg = np.rot90(screenImg)
-    screenImg = np.rot90(screenImg)
+    if(not reverse):
+        screenImg = np.rot90(screenImg)
+        screenImg = np.rot90(screenImg)
     cv2.imwrite("temp/cur.png",screenImg)
     dstImg = cv2.imread('res/'+picDir,0)
     try:
